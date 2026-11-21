@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TERMST</title>
-<meta name="description" content="Games by Termst: Bitten, Wereldrijk and Geoflatter. Free, in the browser.">
+<meta name="description" content="Games by Termst: Bitten, Wereldrijk, Geoflatter and Click-a-Clock. Free, in the browser.">
 <meta name="theme-color" content="#0b0b0a">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-title" content="TERMST">
@@ -148,6 +148,30 @@ h1{margin:0}
 .gf-dist rect{fill:#1e1d1a;stroke:#3a3831;stroke-width:1}
 .gf-dist text{font:700 11px/1 'Madani',system-ui,sans-serif;fill:#eee9de;text-anchor:middle}
 
+
+/* Click-a-Clock (compact tile) */
+.grid.mini{margin-top:clamp(10px,1.3vw,16px)}
+.t-cc{aspect-ratio:4/1.55;background:#16212d;color:#e3e9ef}
+.t-cc.on{outline-color:#d69b2d}
+.t-cc .row{position:absolute;inset:0;display:flex;align-items:center;gap:5cqw;padding:0 5.5cqw}
+.t-cc .face{flex:none;width:24cqw;height:24cqw;overflow:visible}
+.t-cc .hand{transform-box:view-box;transform-origin:50px 50px;animation:ccTick 12s steps(12) infinite}
+.t-cc .hand.m{animation-duration:144s}
+.t-cc.on .hand{animation-duration:2.4s}
+.t-cc.on .hand.m{animation-duration:28.8s}
+@keyframes ccTick{to{transform:rotate(360deg)}}
+.t-cc .txt{min-width:0;flex:1}
+.t-cc .top2{display:block;font:600 3.2cqw/1 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:#7f93a8;margin:0 0 1.6cqw}
+.t-cc .top2 b{color:#e3e9ef;font-weight:600}
+.t-cc .word{display:block;font:700 9.4cqw/.9 var(--cond);letter-spacing:.01em;text-transform:uppercase;color:#f3c86c;margin:0 0 1.8cqw}
+.t-cc .tag{margin:0;font:500 4cqw/1.25 var(--cond);color:#a9b6c4}
+.t-cc .go{right:5.5cqw;bottom:50%;transform:translate(10px,50%);font:700 5cqw/1 var(--cond);background:#d69b2d;color:#3a2504;padding:.42em .8em .44em;
+  box-shadow:0 .2em 0 #a06c14}
+.t-cc.on .go{transform:translateY(50%)}
+@media (hover:none){.t-cc .go{transform:translateY(50%)}}
+@media (max-width:720px){.t-cc{aspect-ratio:4/1.7}}
+@container (max-width:250px){.t-cc .tag{display:block}}
+
 /* ---------- footer ---------- */
 footer{display:flex;justify-content:space-between;gap:16px;margin-top:clamp(22px,3vw,34px);padding-top:10px;border-top:1px solid var(--line);
   font:600 12px/1 var(--cond);letter-spacing:.2em;text-transform:uppercase;color:#55534f}
@@ -183,7 +207,7 @@ footer a:hover{color:var(--ink)}
       </g>
     </svg>
   </h1>
-  <div class="rule"><span>Browser games</span><span><b>03</b></span></div>
+  <div class="rule"><span>Browser games</span><span><b>04</b></span></div>
 </header>
 
 <ul class="grid">
@@ -399,6 +423,32 @@ footer a:hover{color:var(--ink)}
   <div class="cap">
     <div class="brand"><svg viewBox="0 0 58.5 64" aria-hidden="true"><use href="#gf-logo"/></svg><span class="word">Geo<em>flatter</em></span></div>
     <p class="tag">Drop the pin. Closest guess on the flat map wins.</p>
+  </div>
+  <span class="go">Play</span>
+</a>
+</li>
+</ul>
+
+<ul class="grid mini">
+<!-- ===================== CLICK-A-CLOCK ===================== -->
+<li>
+<a class="tile t-cc" id="t-cc" href="../c-a-c/" aria-label="Click-a-Clock. Idle clicker: build a clock empire.">
+  <div class="row">
+    <svg class="face" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="52" r="46" fill="#a06c14"/>
+      <circle cx="50" cy="48" r="46" fill="#d69b2d"/>
+      <circle cx="50" cy="48" r="38" fill="#f8fafc"/>
+      <g stroke="#16212d" stroke-width="2.4" stroke-linecap="round"><path d="M50 14v6M50 76v6M16 48h6M78 48h6"/></g>
+      <g stroke="#7f93a8" stroke-width="1.4" stroke-linecap="round"><path d="M33 19l3 5M67 19l-3 5M19 33l5 3M81 33l-5 3M19 63l5-3M81 63l-5-3M33 77l3-5M67 77l-3-5"/></g>
+      <g style="transform:translateY(-2px)"><path class="hand m" d="M50 48V26" stroke="#16212d" stroke-width="3.4" stroke-linecap="round"/>
+      <path class="hand" d="M50 48V18" stroke="#c0392b" stroke-width="1.8" stroke-linecap="round"/></g>
+      <circle cx="50" cy="48" r="3.4" fill="#16212d"/>
+    </svg>
+    <div class="txt">
+      <span class="top2"><b>04</b>&nbsp; Idle clicker</span>
+      <span class="word">Click-a-Clock</span>
+      <p class="tag">Tick, upgrade, build a clock empire.</p>
+    </div>
   </div>
   <span class="go">Play</span>
 </a>
